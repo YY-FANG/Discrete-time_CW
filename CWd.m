@@ -373,5 +373,5 @@ if B10 == 1
 end
 
 if comp == 1
-    analysis4(s1,s1d,s1r,t,td,tr,equ,equd,equr,i)   
+    analysis4(s1,s1d,s1r,t,td,tr,equ,equd,equr,10)   
 end    
