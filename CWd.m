@@ -13,7 +13,7 @@ F = 1;
 % the gravitational acceleration (m/s)
 g = 9.8093;             
 
-B1_2 = 0; B3 = 0; B4_5 = 0; B6_7 = 0; B8 = 0; B9 = 0; B10 = 0;
+B1_2 = 0; B3 = 0; B4_5 = 0; B6_7 = 0; B8 = 0; B9 = 0; B10 = 0; comp = 0;
 
 %% State Space Representations
 % system matrix
@@ -72,6 +72,7 @@ Acl = A+(B*K);
 sys_cl = ss(Acl,B,C,D,'statename',states,'inputname',inputs,'outputname',outputs);
 
 % four various initial states
+% x0_1 = [-0.5 -2 -pi/6 -3];
 x0_1 = [-0.5 0 0 0];
 x0_2 = [0 -0.5 0 0];
 x0_3 = [0 0 -0.7 0];
@@ -210,6 +211,7 @@ end
 sys_ssd = c2d(sys_ss,T);
 
 %% B7
+% x0_1 = [-0.5 -2 -pi/6 -3];
 x0_1 = [-0.5 0 0 0];
 x0_2 = [0 -0.5 0 0];
 x0_3 = [0 0 -0.7 0];
@@ -286,6 +288,7 @@ if B8 == 1
 end
 
 %% B9
+% x0_1 = [-0.5 -2 -pi/6 -3];
 x0_1 = [-0.5 0 0 0];
 x0_2 = [0 -0.5 0 0];
 x0_3 = [0 0 -0.7 0];
@@ -343,7 +346,7 @@ end
 % asymptoyiclly stable 
 % Tr = 0.296; periodr = Tr*80;
 % Tr = 0.18; periodr = 12.6;
-Tr = 0.08; periodr = 12;
+Tr = 0.08; periodr = 6;
 
 tr = 0:Tr:periodr; timesr = round(Tr\periodr); equr = zeros(1,timesr+1); 
 
@@ -368,3 +371,7 @@ end
 if B10 == 1  
     analysis2(s1r,s2r,s3r,s4r,tr,equr,9);
 end
+
+if comp == 1
+    analysis4(s1,s1d,s1r,t,td,tr,equ,equd,equr,i)   
+end    
